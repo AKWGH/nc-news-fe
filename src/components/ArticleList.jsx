@@ -8,10 +8,11 @@ const ArticleList = () => {
 
   useEffect(() => {
     getArticles().then((data) => {
+      console.log(data);
       setArticles(data.articles);
     });
   }, []);
-
+  console.log(articles);
   return (
     <>
       <h2>articles</h2>
