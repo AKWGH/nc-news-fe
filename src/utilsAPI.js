@@ -15,3 +15,13 @@ export const getIndividualArticle = (article_id) => {
       return data.article[0];
     });
 };
+
+export const getArticleComments = (article_id) => {
+  return axios
+    .get(
+      `https://nc-news-api-sces.onrender.com/api/articles/${article_id}/comments`
+    )
+    .then(({ data }) => {
+      return data;
+    });
+};
