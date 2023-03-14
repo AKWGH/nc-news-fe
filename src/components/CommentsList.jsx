@@ -10,7 +10,7 @@ const CommentsList = ({ article_id }) => {
   }, []);
 
   return (
-    <div>
+    <section>
       {articleComments.map((comment) => {
         return (
           <>
@@ -19,7 +19,7 @@ const CommentsList = ({ article_id }) => {
           </>
         );
       })}
-    </div>
+    </section>
   );
 };
 
