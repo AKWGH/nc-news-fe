@@ -14,8 +14,11 @@ const CommentsList = ({ article_id }) => {
       {articleComments.map((comment) => {
         return (
           <>
-            <h2>{comment.author}</h2>
-            <p>{comment.body}</p>
+            <div>
+              <h2>{comment.author}</h2>
+              <span>{comment.created_at}</span>
+              <p>{comment.body}</p>
+            </div>
           </>
         );
       })}
