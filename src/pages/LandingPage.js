@@ -1,9 +1,10 @@
 import React from 'react';
-import ArticleList from '../components/ArticleList';
+
+import { Link } from 'react-router-dom';
 const LandingPage = () => {
   return (
     <div>
-      <ArticleList />
+      <Link to="/articles">articles</Link>
     </div>
   );
 };
