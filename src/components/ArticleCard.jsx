@@ -15,13 +15,11 @@ const ArticleCard = ({ articleData }) => {
   } = articleData;
 
   return (
-    <Link to={`/articles/${article_id}`}>
-      <div className="article-card-container">
-        <img className="article-card-img" src={article_img_url} alt="" />
-        <h2>{title}</h2>
-        <h3>{author}</h3>
-      </div>
-    </Link>
+    <>
+      <img className="article-card-img" src={article_img_url} alt="" />
+      <h2>{title}</h2>
+      <h3>{author}</h3>
+    </>
   );
 };
 
