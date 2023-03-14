@@ -11,7 +11,6 @@ const ArticleList = () => {
       setArticles(data.articles);
     });
   }, []);
-
   return (
     <>
       <h2>articles</h2>

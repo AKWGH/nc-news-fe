@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ArticleCard = ({ articleData }) => {
   const {
@@ -10,17 +11,15 @@ const ArticleCard = ({ articleData }) => {
     title,
     topic,
     votes,
+    article_id,
   } = articleData;
-  console.log(votes);
+
   return (
     <div className="article-card-container">
+      <img className="article-card-img" src={article_img_url} alt="" />
+      <Link to={`/articles/${article_id}`}>read</Link>
       <h2>{title}</h2>
       <h3>{author}</h3>
-      <div className="article-card-img-container">
-        <img className="article-card-img" src={article_img_url} alt="" />
-        <br />
-        <button>read</button>
-      </div>
     </div>
   );
 };
