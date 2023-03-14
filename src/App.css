@@ -6,6 +6,7 @@
 /* end of landing page section */
 
 /* articles-section */
+
 .article-card-container {
   max-width: 25rem;
   margin-left: auto;
@@ -28,10 +29,17 @@
   border: solid black;
 }
 
-@media screen and (min-width: 600px) {
-  .articles-list {
-    display: flex;
-    flex-wrap: wrap;
+.articles-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 450px) {
+  .article-card-container {
+    max-width: 18rem;
+    min-height: 25rem;
+    min-width: 18rem;
   }
 }
 /* end of articles-section */
