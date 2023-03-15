@@ -7,7 +7,7 @@ const CommentsList = ({ article_id }) => {
     getArticleComments(article_id).then((data) => {
       setArticleComments(data.comments);
     });
-  }, []);
+  }, [article_id]);
 
   return (
     <section>
