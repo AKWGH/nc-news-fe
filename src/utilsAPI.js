@@ -25,3 +25,13 @@ export const getArticleComments = (article_id) => {
       return data;
     });
 };
+
+export const voteForArticle = (article_id) => {
+  return axios
+    .patch(`https://nc-news-api-sces.onrender.com/api/articles/${article_id}`, {
+      inc_votes: 1,
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};
