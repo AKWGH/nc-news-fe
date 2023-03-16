@@ -3,11 +3,15 @@ import { useParams } from 'react-router-dom';
 import { getIndividualArticle, voteForArticle } from '../utilsAPI';
 import { useEffect, useState } from 'react';
 import CommentsList from '../components/CommentsList';
+import PostComment from '../components/PostComment';
+import { AiOutlineLike } from 'react-icons/ai';
 
 const IndividualArticlePage = () => {
   const { article_id } = useParams();
   const [articleData, setArticleData] = useState([]);
   const [userVote, setUserVote] = useState(0);
+  const [articleComments, setArticleComments] = useState([]);
+  const [newComment, setNewComment] = useState('');
 
   const onClickHandler = () => {
     setUserVote(1);
@@ -24,24 +28,33 @@ const IndividualArticlePage = () => {
 
   return (
     <>
-      <section>
+      <section className="article-page">
         <h1>{articleData.title}</h1>
         <img src={articleData.article_img_url} alt="" />
-        <p>votes {articleData.votes + userVote} </p>
+        <p className="votes">votes {articleData.votes + userVote} </p>
         <button
           disabled={userVote !== 0}
           onClick={() => {
             onClickHandler();
           }}
         >
-          vote
+          <AiOutlineLike className="vote-btn" />
         </button>
-        <p>{articleData.body}</p>
-
-        <p>comments {articleData.comment_count}</p>
+        <p className="article-page-body">{articleData.body}</p>
       </section>
+      <PostComment
+        article_id={article_id}
+        setNewComment={setNewComment}
+        articleCommentCount={articleData.comment_count}
+      />
       <section>
-        <CommentsList article_id={article_id} />
+        <CommentsList
+          newComment={newComment}
+          articleCommentCount={articleData.comment_count}
+          article_id={article_id}
+          articleComments={articleComments}
+          setArticleComments={setArticleComments}
+        />
       </section>
     </>
   );

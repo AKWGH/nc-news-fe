@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { getArticleComments } from '../utilsAPI';
+import { BiCommentDetail } from 'react-icons/bi';
 
-const CommentsList = ({ article_id }) => {
-  const [articleComments, setArticleComments] = useState([]);
+const CommentsList = ({
+  article_id,
+  articleComments,
+  setArticleComments,
+  newComment,
+}) => {
   useEffect(() => {
     getArticleComments(article_id).then((data) => {
       setArticleComments(data.comments);
     });
-  }, [article_id]);
+  }, [article_id, setArticleComments]);
 
   return (
     <section>
-      {articleComments.map((comment) => {
+      comments
+      <BiCommentDetail />
+      {[newComment, ...articleComments].map((comment) => {
         return (
           <>
             <div>
