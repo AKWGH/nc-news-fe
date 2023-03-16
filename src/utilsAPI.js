@@ -35,3 +35,14 @@ export const voteForArticle = (article_id) => {
       return data;
     });
 };
+
+export const postComment = (article_id, body) => {
+  return axios
+    .post(
+      `https://nc-news-api-sces.onrender.com/api/articles/${article_id}/comments`,
+      { username: 'jessjelly', body }
+    )
+    .then(({ data }) => {
+      return data;
+    });
+};
