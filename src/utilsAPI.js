@@ -1,9 +1,14 @@
 import axios from 'axios';
 
-export const getArticles = () => {
+export const getArticles = (props) => {
+  if (props === undefined) {
+    props = '';
+  }
+  console.log(props, '<<<<');
   return axios
-    .get('https://nc-news-api-sces.onrender.com/api/articles')
+    .get(`https://nc-news-api-sces.onrender.com/api/articles?topic=${props}`)
     .then(({ data }) => {
+      console.log(data);
       return data;
     });
 };
