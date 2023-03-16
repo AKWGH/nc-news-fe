@@ -125,3 +125,11 @@
 .comments-click {
   margin-bottom: 4rem;
 }
+
+.article-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 30vw;
+  margin-right: 30vw;
+  margin-bottom: 1rem;
+}

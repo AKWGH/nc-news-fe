@@ -13,9 +13,10 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/articles" element={<ArticlesPage />} />
         <Route
-          path="/articles/:article_id"
+          path="/article/:article_id"
           element={<IndividualArticlePage />}
         />
+        <Route path="/articles/:filtered" element={<ArticlesPage />} />
       </Routes>
     </div>
   );
