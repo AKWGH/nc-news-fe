@@ -1,14 +1,17 @@
 import axios from 'axios';
 
-export const getArticles = (props) => {
+export const getArticles = (props, orderBy, sortBy) => {
   if (props === undefined) {
     props = '';
   }
-  console.log(props, '<<<<');
+
   return axios
-    .get(`https://nc-news-api-sces.onrender.com/api/articles?topic=${props}`)
+    .get(
+      `https://nc-news-api-sces.onrender.com/api/articles?topic=${props}&sort_by=${
+        sortBy || 'created_at'
+      }&order=${orderBy || 'desc'}`
+    )
     .then(({ data }) => {
-      console.log(data);
       return data;
     });
 };
