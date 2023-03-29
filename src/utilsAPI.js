@@ -44,13 +44,21 @@ export const voteForArticle = (article_id) => {
     });
 };
 
-export const postComment = (article_id, body) => {
+export const postComment = (article_id, username, body) => {
   return axios
     .post(
       `https://nc-news-api-sces.onrender.com/api/articles/${article_id}/comments`,
-      { username: 'jessjelly', body }
+      { username, body }
     )
     .then(({ data }) => {
       return data;
+    });
+};
+
+export const deleteComment = (comment_id) => {
+  return axios
+    .delete(`https://nc-news-api-sces.onrender.com/api/comments/${comment_id}`)
+    .then((data) => {
+      console.log(data);
     });
 };
