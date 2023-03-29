@@ -6,7 +6,7 @@ import CommentsList from '../components/CommentsList';
 import PostComment from '../components/PostComment';
 import { AiOutlineLike } from 'react-icons/ai';
 
-const IndividualArticlePage = () => {
+const IndividualArticlePage = ({ username }) => {
   const { article_id } = useParams();
   const [articleData, setArticleData] = useState([]);
   const [userVote, setUserVote] = useState(0);
@@ -43,12 +43,15 @@ const IndividualArticlePage = () => {
         <p className="article-page-body">{articleData.body}</p>
       </section>
       <PostComment
+        username={username}
         article_id={article_id}
         setNewComment={setNewComment}
         articleCommentCount={articleData.comment_count}
       />
       <section>
         <CommentsList
+          key={articleComments.length}
+          username={username}
           newComment={newComment}
           articleCommentCount={articleData.comment_count}
           article_id={article_id}

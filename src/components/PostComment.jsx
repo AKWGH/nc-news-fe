@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { postComment } from '../utilsAPI';
 
-const PostComment = ({ article_id, setNewComment }) => {
+const PostComment = ({ article_id, setNewComment, username }) => {
   const [commentBody, setCommentBody] = useState('');
 
   const onChangeHandler = (event) => {
@@ -11,7 +11,7 @@ const PostComment = ({ article_id, setNewComment }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    postComment(article_id, commentBody)
+    postComment(article_id, username, commentBody)
       .then((data) => {
         setNewComment(data.comment[0]);
       })
