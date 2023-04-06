@@ -13,9 +13,6 @@ const IndividualArticlePage = ({ username }) => {
   const [articleComments, setArticleComments] = useState([]);
   const [newComment, setNewComment] = useState("");
 
-  console.log(articleData);
-  console.log(articleComments);
-
   const onClickHandler = () => {
     setUserVote(1);
     voteForArticle(article_id).catch((err) => {

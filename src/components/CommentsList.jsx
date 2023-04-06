@@ -8,14 +8,13 @@ const CommentsList = ({
   article_id,
   articleComments,
   setArticleComments,
-  newComment,
+
   username,
 }) => {
   const handleClick = (comment_id) => {
-    const newComments = articleComments.filter((comment) => {
-      return comment.comment_id !== comment_id;
-    });
-    setArticleComments(newComments);
+    // const newComments = articleComments.filter((comment) => {
+    //   return comment.comment_id !== comment_id;
+    // });
     deleteComment(comment_id);
   };
 
@@ -32,13 +31,13 @@ const CommentsList = ({
       });
       setArticleComments(copyCommentsData);
     });
-  }, [article_id, setArticleComments]);
+  }, [article_id, setArticleComments, articleComments]);
 
   return (
     <section className="comments-section">
       comments
       <BiCommentDetail />
-      {[newComment, ...articleComments].map((comment, index) => {
+      {articleComments.map((comment, index) => {
         const { comment_id } = comment;
 
         return (

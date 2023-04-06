@@ -11,14 +11,11 @@ const PostComment = ({ article_id, setNewComment, username }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
     postComment(article_id, username, commentBody)
       .then((data) => {
-        setNewComment(data.comment[0]);
+        // add optimistic rendering?
       })
-      .catch((err) => {
-        setNewComment("");
-      });
+      .catch((err) => {});
     setCommentBody("");
   };
 
