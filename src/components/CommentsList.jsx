@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getArticleComments } from "../utilsAPI";
 import { BiCommentDetail } from "react-icons/bi";
 import { deleteComment } from "../utilsAPI";
+import format from "date-format";
 
 const CommentsList = ({
-  key,
   article_id,
   articleComments,
   setArticleComments,
@@ -21,9 +21,18 @@ const CommentsList = ({
 
   useEffect(() => {
     getArticleComments(article_id).then((data) => {
-      setArticleComments(data.comments);
+      const copyCommentsData = data.comments.map((commentData) => {
+        const copyData = { ...commentData };
+        const dateFormat = format(
+          "dd/MM/yyyy hh:mm",
+          new Date(commentData.created_at)
+        );
+        copyData.created_at = dateFormat;
+        return copyData;
+      });
+      setArticleComments(copyCommentsData);
     });
-  }, [article_id, setArticleComments, key]);
+  }, [article_id, setArticleComments]);
 
   return (
     <section className="comments-section">

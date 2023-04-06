@@ -1,9 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
-import { postComment } from '../utilsAPI';
+import React from "react";
+import { useState } from "react";
+import { postComment } from "../utilsAPI";
 
 const PostComment = ({ article_id, setNewComment, username }) => {
-  const [commentBody, setCommentBody] = useState('');
+  const [commentBody, setCommentBody] = useState("");
 
   const onChangeHandler = (event) => {
     setCommentBody(event.target.value);
@@ -11,14 +11,15 @@ const PostComment = ({ article_id, setNewComment, username }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+
     postComment(article_id, username, commentBody)
       .then((data) => {
         setNewComment(data.comment[0]);
       })
       .catch((err) => {
-        setNewComment('');
+        setNewComment("");
       });
-    setCommentBody('');
+    setCommentBody("");
   };
 
   return (

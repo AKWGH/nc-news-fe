@@ -1,17 +1,20 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { getIndividualArticle, voteForArticle } from '../utilsAPI';
-import { useEffect, useState } from 'react';
-import CommentsList from '../components/CommentsList';
-import PostComment from '../components/PostComment';
-import { AiOutlineLike } from 'react-icons/ai';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { getIndividualArticle, voteForArticle } from "../utilsAPI";
+import { useEffect, useState } from "react";
+import CommentsList from "../components/CommentsList";
+import PostComment from "../components/PostComment";
+import { AiOutlineLike } from "react-icons/ai";
 
 const IndividualArticlePage = ({ username }) => {
   const { article_id } = useParams();
   const [articleData, setArticleData] = useState([]);
   const [userVote, setUserVote] = useState(0);
   const [articleComments, setArticleComments] = useState([]);
-  const [newComment, setNewComment] = useState('');
+  const [newComment, setNewComment] = useState("");
+
+  console.log(articleData);
+  console.log(articleComments);
 
   const onClickHandler = () => {
     setUserVote(1);
@@ -50,7 +53,6 @@ const IndividualArticlePage = ({ username }) => {
       />
       <section>
         <CommentsList
-          key={articleComments.length}
           username={username}
           newComment={newComment}
           articleCommentCount={articleData.comment_count}
