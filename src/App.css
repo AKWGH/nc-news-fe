@@ -83,7 +83,25 @@
   gap: 1rem;
 }
 
+.article-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  max-width: 30rem;
+}
+
+.article-buttons a {
+  color: var(--main-brand-colour);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
 @media screen and (max-width: 450px) {
+  .article-buttons a {
+    font-size: 0.75rem;
+  }
   .article-card-container {
     max-width: 18rem;
     min-height: 25rem;
@@ -120,20 +138,64 @@
   margin-bottom: 1rem;
 }
 
+@media screen and (min-width: 450px) {
+  .article-page img {
+    max-width: 40rem;
+  }
+}
+
 /* end of individual article section */
 
-.comments-click {
-  margin-bottom: 4rem;
+/* posting a comment */
+.post-comment {
+  height: 6rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  resize: none;
+  width: 90vw;
+  max-width: 28rem;
 }
-
-.article-buttons {
+.post-comment-div {
   display: flex;
-  justify-content: space-around;
-  margin-left: 30vw;
-  margin-right: 30vw;
+  flex-direction: column;
+}
+.post-comment-btn {
+  padding: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: var(--light-accent);
   margin-bottom: 1rem;
 }
+/* end of posting comment */
 
-.test {
-  margin-top: 5rem;
+/* displaying article comments section */
+.comments-section {
+  border: solid black;
+  border-radius: 10px;
+  width: 90vw;
+  margin: auto;
+  max-width: 75rem;
+  background-color: var(--light-shades);
 }
+.comment {
+  border-bottom: solid black;
+  margin-bottom: 1rem;
+}
+.delete-comment-btn {
+  background: none;
+  padding: 0.15rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  color: var(--dark-shades);
+  letter-spacing: 0.15rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.delete-comment-btn:hover {
+  background: rgba(255, 0, 0, 0.395);
+}
+
+/* end of displaying article comments section */
+
+/* testing area */

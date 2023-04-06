@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { getArticleComments } from '../utilsAPI';
-import { BiCommentDetail } from 'react-icons/bi';
-import { deleteComment } from '../utilsAPI';
+import React, { useEffect, useState } from "react";
+import { getArticleComments } from "../utilsAPI";
+import { BiCommentDetail } from "react-icons/bi";
+import { deleteComment } from "../utilsAPI";
 
 const CommentsList = ({
   key,
@@ -26,24 +26,25 @@ const CommentsList = ({
   }, [article_id, setArticleComments, key]);
 
   return (
-    <section>
+    <section className="comments-section">
       comments
       <BiCommentDetail />
       {[newComment, ...articleComments].map((comment, index) => {
         const { comment_id } = comment;
 
         return (
-          <section key={index}>
+          <section className="comment" key={index}>
             <h2>{comment.author}</h2>
             <span>{comment.created_at}</span>
             <p>{comment.body}</p>
             {comment.author === username ? (
               <button
+                className="delete-comment-btn"
                 onClick={() => {
                   handleClick(comment_id);
                 }}
               >
-                delete
+                delete comment
               </button>
             ) : null}
           </section>

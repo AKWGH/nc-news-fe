@@ -22,16 +22,20 @@ const PostComment = ({ article_id, setNewComment, username }) => {
   };
 
   return (
-    <div>
+    <div className="post-comment-div">
       post a comment
       <form onSubmit={submitHandler}>
         <textarea
+          className="post-comment"
           onChange={onChangeHandler}
           value={commentBody}
           cols="30"
           rows="10"
         ></textarea>
-        <button type="submit">Post</button>
+        <br />
+        <button className="post-comment-btn" type="submit">
+          Post
+        </button>
       </form>
     </div>
   );
