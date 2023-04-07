@@ -6,10 +6,10 @@ const LandingPage = ({ setUsername, username }) => {
     <div className="landing">
       <h2>Explore the world, one article at a time</h2>
       <Link className="articles-link" to="/articles">
-        articles
+        Articles
       </Link>
 
-      <h1>active user : {username}</h1>
+      <h1>Active user : {username}</h1>
       <section className="change-user-section">
         <button onClick={() => setUsername("jessjelly")}>jessjelly</button>
         <button onClick={() => setUsername("cooljmessy")}>cooljmessy</button>

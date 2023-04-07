@@ -23,7 +23,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
         onClick={() => setShowSidebar(false)}
         to={"/articles"}
       >
-        articles
+        Articles
       </Link>
     </aside>
   );
