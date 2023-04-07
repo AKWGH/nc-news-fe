@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 const LandingPage = ({ setUsername, username }) => {
   return (
     <div className="landing">
@@ -9,11 +9,11 @@ const LandingPage = ({ setUsername, username }) => {
         articles
       </Link>
 
+      <h1>active user : {username}</h1>
       <section className="test">
-        <h1>active user : {username}</h1>
-        <button onClick={() => setUsername('jessjelly')}>jessjelly</button>
-        <button onClick={() => setUsername('cooljmessy')}>cooljmessy</button>
-        <button onClick={() => setUsername('happyamy2016')}>
+        <button onClick={() => setUsername("jessjelly")}>jessjelly</button>
+        <button onClick={() => setUsername("cooljmessy")}>cooljmessy</button>
+        <button onClick={() => setUsername("happyamy2016")}>
           happyamy2016
         </button>
       </section>
