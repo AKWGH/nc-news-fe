@@ -10,7 +10,7 @@ const LandingPage = ({ setUsername, username }) => {
       </Link>
 
       <h1>active user : {username}</h1>
-      <section className="test">
+      <section className="change-user-section">
         <button onClick={() => setUsername("jessjelly")}>jessjelly</button>
         <button onClick={() => setUsername("cooljmessy")}>cooljmessy</button>
         <button onClick={() => setUsername("happyamy2016")}>
